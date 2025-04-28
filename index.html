@@ -246,6 +246,7 @@
             overflow: hidden;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            min-height: 600px;
         }
         
         .project-card:hover {
@@ -497,6 +498,285 @@
             display: block;
             margin-bottom: 0.8rem;
         }
+        /* Enhanced Projects Styling */
+    .projects-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .projects-filter {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .filter-btn {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--text-light);
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .filter-btn:hover {
+      background: rgba(37, 99, 235, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .filter-btn.active {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      border: 2px solid transparent;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+      perspective: 1000px;
+    }
+    
+    .project-card {
+      position: relative;
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      transform-style: preserve-3d;
+      height: 460px;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+      box-shadow: 0 25px 35px -5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+      border-radius: 12px;
+    }
+    
+    .project-card:hover::before {
+      opacity: 1;
+    }
+    
+    .project-img {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      background: linear-gradient(to right, #1e293b, #0f172a);
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .project-card:hover .project-img {
+      transform: scale(1.05);
+    }
+    
+    .project-img .tech-icon {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: var(--bg-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-card:hover .tech-icon {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .tech-icon:nth-child(2) {
+      left: 25%;
+      bottom: -20px;
+      transition-delay: 0.1s;
+    }
+    
+    .tech-icon:nth-child(3) {
+      left: 50%;
+      bottom: -20px;
+      transform: translateX(-50%);
+      transition-delay: 0.2s;
+    }
+    
+    .tech-icon:nth-child(4) {
+      right: 25%;
+      bottom: -20px;
+      transition-delay: 0.3s;
+    }
+    
+    .project-content {
+      padding: 1.8rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .project-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      background: linear-gradient(to right, var(--text-light), #a5b4fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .project-description {
+      color: var(--text-gray);
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+    
+    .tag {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+    
+    .project-card:hover .tag {
+      background: rgba(59, 130, 246, 0.2);
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+    }
+    
+    .project-status {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    
+    .status-completed {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+    
+    .status-ongoing {
+      background: rgba(245, 158, 11, 0.1);
+      color: #f59e0b;
+    }
+    
+    .featured-badge {
+      position: absolute;
+      top: -6px;
+      left: 20px;
+      background: linear-gradient(to right, #ef4444, #f97316);
+      color: white;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      border-radius: 0 0 8px 8px;
+      font-weight: 600;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      z-index: 3;
+    }
+    
+    .project-metrics {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-gray);
+    }
+    
+    .project-metric {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    .metric-number {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    .empty-state {
+      padding: 3rem;
+      text-align: center;
+      color: var(--text-gray);
+      grid-column: 1 / -1;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .project-card {
+        height: auto;
+      }
+    }
     </style>
 </head>
 <body>
@@ -553,27 +833,561 @@
             </div>
         </section>
         
-        <section class="section" id="skills">
-            <h2 class="section-title">My <span>Skills</span></h2>
-            <div class="skills">
-                <div class="skill-card">
-                    <h3>Languages</h3>
-                    <p>Python, Java, C++, JavaScript, HTML, CSS, SQL</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Frameworks & Libraries</h3>
-                    <p>React, Node.js, Express, Flask, Django, Bootstrap</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Tools & Technologies</h3>
-                    <p>Git, GitHub, VS Code, Docker, AWS, Linux, Agile</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Computer Science</h3>
-                    <p>Data Structures, Algorithms, Database Systems, OOP, Software Engineering</p>
-                </div>
+        <!-- Skills Tech Tree HTML Version -->
+<div class="skills-tech-tree">
+    <!-- Category Selector -->
+    <div class="category-selector">
+      <div class="category-buttons">
+        <button class="category-btn active" data-category="languages">💻 Languages</button>
+        <button class="category-btn" data-category="frontend">🖥️ Frontend</button>
+        <button class="category-btn" data-category="backend">⚙️ Backend</button>
+        <button class="category-btn" data-category="datascience">📊 Data Science</button>
+        <button class="category-btn" data-category="tools">🛠️ Tools</button>
+        <button class="category-btn" data-category="networking">🌐 Networking</button>
+      </div>
+    </div>
+    
+    <!-- Skills Container -->
+    <div class="skills-container">
+      <!-- Skills List -->
+      <div class="skills-list">
+        <!-- Skills will be populated here by JavaScript -->
+      </div>
+      
+      <!-- Skill Details -->
+      <div class="skill-details">
+        <div class="skill-details-placeholder">
+          <div class="text-6xl mb-4">👆</div>
+          <p class="text-xl">Hover over a skill to see details</p>
+          <p class="text-sm mt-2">Explore your technology skills by category and discover connections between them</p>
+        </div>
+        <div class="skill-details-content" style="display: none;">
+          <!-- Skill details will be populated here by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    /* Skills Tech Tree Styles */
+    .skills-tech-tree {
+      padding: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    /* Category Selector */
+    .category-selector {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+    
+    .category-buttons {
+      display: inline-flex;
+      background-color: rgba(30, 41, 59, 0.8);
+      padding: 0.25rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .category-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      border: none;
+      background: transparent;
+      color: #94a3b8;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    
+    .category-btn:hover {
+      color: #f8fafc;
+    }
+    
+    .category-btn.active {
+      background: linear-gradient(to right, #2563eb, #7c3aed);
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Skills Container */
+    .skills-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      min-height: 24rem;
+    }
+    
+    @media (min-width: 768px) {
+      .skills-container {
+        flex-direction: row;
+      }
+      
+      .skills-list {
+        width: 60%;
+      }
+      
+      .skill-details {
+        width: 40%;
+      }
+    }
+    
+    /* Skills List */
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+    }
+    
+    @media (min-width: 640px) {
+      .skills-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .skills-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    /* Skill Card */
+    .skill-card {
+      position: relative;
+      background-color: rgba(30, 41, 59, 0.8);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .skill-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    }
+    
+    .skill-card.dimmed {
+      opacity: 0.6;
+      transform: scale(0.95);
+    }
+    
+    .skill-card.active {
+      box-shadow: 0 0 0 2px #2563eb;
+    }
+    
+    .skill-card-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .skill-card:hover .skill-card-glow {
+      opacity: 1;
+    }
+    
+    .skill-card-border {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    
+    .skill-card-border-inner {
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(to right, #2563eb, #7c3aed);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 0.5rem;
+    }
+    
+    .skill-card:hover .skill-card-border-inner,
+    .skill-card.active .skill-card-border-inner {
+      opacity: 1;
+    }
+    
+    .skill-card-content {
+      position: relative;
+      z-index: 10;
+      background-color: rgba(30, 41, 59, 0.8);
+      margin: 1px;
+      border-radius: 0.5rem;
+      height: 100%;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .skill-icon {
+      font-size: 1.875rem;
+    }
+    
+    .skill-name {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+    
+    .skill-metrics {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      margin-top: auto;
+    }
+    
+    .skill-metric {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+    }
+    
+    .skill-metric-value {
+      font-family: monospace;
+      background-color: rgba(30, 58, 138, 0.3);
+      padding: 0 0.5rem;
+      border-radius: 0.25rem;
+      color: #93c5fd;
+    }
+    
+    .skill-metric-value.purple {
+      background-color: rgba(88, 28, 135, 0.3);
+      color: #d8b4fe;
+    }
+    
+    /* Skill Details */
+    .skill-details {
+      background-color: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(8px);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      border: 1px solid #334155;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .skill-details-placeholder {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #64748b;
+    }
+    
+    .skill-details-content {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+    
+    .skill-details-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .skill-details-icon {
+      font-size: 3rem;
+    }
+    
+    .skill-details-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #60a5fa, #c4b5fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .skill-details-section {
+      margin-bottom: (1rem);
+    }
+    
+    .skill-details-section-title {
+      color: #60a5fa;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .skill-details-section-title.purple {
+      color: #c4b5fd;
+    }
+    
+    .skill-dots {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .skill-dot {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 9999px;
+      background: linear-gradient(to right, #2563eb, #7c3aed);
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    .skill-progress {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .skill-progress-bar {
+      background-color: #334155;
+      border-radius: 9999px;
+      height: 0.5rem;
+      flex-grow: 1;
+    }
+    
+    .skill-progress-fill {
+      background: linear-gradient(to right, #3b82f6, #8b5cf6);
+      height: 100%;
+      border-radius: 9999px;
+    }
+    
+    .skill-progress-text {
+      color: #94a3b8;
+    }
+    
+    .related-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .related-skill {
+      padding: 0.25rem 0.75rem;
+      background-color: rgba(30, 58, 138, 0.3);
+      color: #93c5fd;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.7;
+        transform: scale(0.95);
+      }
+    }
+    
+    .animate-fadeIn {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+    
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+  
+  <script>
+    // Skills data
+    const skillCategories = {
+    languages: [
+      { name: 'Python', icon: '🐍', projects: 3, yearsExp: 4, relatedSkills: ['TensorFlow', 'scikit-learn'] },
+      { name: 'Java', icon: '☕', projects: 2, yearsExp: 3, relatedSkills: ['Android', 'Mobile Development'] },
+      { name: 'C', icon: '©️', projects: 1, yearsExp: 2, relatedSkills: ['Systems Programming'] },
+      { name: 'JavaScript', icon: '💛', projects: 2, yearsExp: 3, relatedSkills: ['React.js', 'Web Development'] },
+      { name: 'R', icon: '📊', projects: 1, yearsExp: 2, relatedSkills: ['Data Analysis', 'Statistics'] },
+      { name: 'Assembly', icon: '⚙️', projects: 1, yearsExp: 1, relatedSkills: ['Computer Architecture', 'MIPS'] },
+      { name: 'MATLAB', icon: '🧮', projects: 1, yearsExp: 2, relatedSkills: ['Signal Processing', 'Data Visualization'] },
+    ],
+    frontend: [
+      { name: 'HTML/CSS', icon: '🎨', projects: 2, yearsExp: 4, relatedSkills: ['UI Design', 'Web Accessibility'] },
+      { name: 'React.js', icon: '⚛️', projects: 1, yearsExp: 2, relatedSkills: ['JavaScript', 'Mobile Development'] },
+      { name: 'React Native', icon: '📱', projects: 2, yearsExp: 1, relatedSkills: ['Mobile Development', 'Expo'] },
+      { name: 'Tailwind CSS', icon: '💨', projects: 1, yearsExp: 2, relatedSkills: ['Responsive Design', 'CSS'] },
+    ],
+    backend: [
+      { name: 'Node.js', icon: '🟢', projects: 1, yearsExp: 2, relatedSkills: ['Express', 'API Development'] },
+      { name: 'MongoDB', icon: '🍃', projects: 2, yearsExp: 2, relatedSkills: ['NoSQL', 'Database Design'] },
+      { name: 'APIs', icon: '🔌', projects: 2, yearsExp: 3, relatedSkills: ['RESTful Services', 'Mobile Apps'] },
+    ],
+    datascience: [
+      { name: 'TensorFlow', icon: '🧠', projects: 1, yearsExp: 2, relatedSkills: ['Deep Learning', 'Neural Networks'] },
+      { name: 'scikit-learn', icon: '🤖', projects: 2, yearsExp: 2, relatedSkills: ['Machine Learning', 'Data Analysis'] },
+      { name: 'Jupyter Notebooks', icon: '📓', projects: 2, yearsExp: 3, relatedSkills: ['Data Visualization', 'Python'] },
+    ],
+    tools: [
+      { name: 'Git', icon: '📝', projects: 6, yearsExp: 4, relatedSkills: ['Version Control', 'Collaboration'] },
+      { name: 'Android Studio', icon: '🤖', projects: 2, yearsExp: 2, relatedSkills: ['Mobile Development', 'Java'] },
+    ],
+    networking: [
+      { name: 'TCP/IP', icon: '🌐', projects: 1, yearsExp: 2, relatedSkills: ['Network Protocols', 'Internet'] },
+    ],
+  };
+  
+    // DOM elements
+    const skillsList = document.querySelector('.skills-list');
+    const skillDetailsPlaceholder = document.querySelector('.skill-details-placeholder');
+    const skillDetailsContent = document.querySelector('.skill-details-content');
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    
+    let activeCategory = 'languages';
+    let activeSkill = null;
+  
+    // Initialize
+    function init() {
+      renderSkills(activeCategory);
+      
+      // Add event listeners to category buttons
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const category = button.dataset.category;
+          setActiveCategory(category);
+        });
+      });
+    }
+  
+    // Set active category
+    function setActiveCategory(category) {
+      activeCategory = category;
+      activeSkill = null;
+      
+      // Update UI
+      categoryButtons.forEach(button => {
+        button.classList.toggle('active', button.dataset.category === category);
+      });
+      
+      renderSkills(category);
+      hideSkillDetails();
+    }
+  
+    // Render skills for a category
+    function renderSkills(category) {
+      skillsList.innerHTML = '';
+      
+      skillCategories[category].forEach(skill => {
+        const skillCard = document.createElement('div');
+        skillCard.className = 'skill-card';
+        skillCard.dataset.skill = skill.name;
+        
+        skillCard.innerHTML = `
+          <div class="skill-card-glow"></div>
+          <div class="skill-card-border">
+            <div class="skill-card-border-inner"></div>
+          </div>
+          <div class="skill-card-content">
+            <div class="skill-header">
+              <span class="skill-icon">${skill.icon}</span>
+              <h3 class="skill-name">${skill.name}</h3>
             </div>
-        </section>
+            <div class="skill-metrics">
+              <div class="skill-metric">
+                <span>Projects</span>
+                <span class="skill-metric-value">${skill.projects}</span>
+              </div>
+              <div class="skill-metric">
+                <span>Experience</span>
+                <span class="skill-metric-value purple">${skill.yearsExp} year${skill.yearsExp !== 1 ? 's' : ''}</span>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // Add event listeners
+        skillCard.addEventListener('mouseenter', () => {
+          setActiveSkill(skill);
+        });
+        
+        skillCard.addEventListener('mouseleave', () => {
+          // We don't reset active skill on leave so the details stay visible
+        });
+        
+        skillsList.appendChild(skillCard);
+      });
+    }
+  
+    // Set active skill
+    function setActiveSkill(skill) {
+      activeSkill = skill;
+      
+      // Update UI
+      document.querySelectorAll('.skill-card').forEach(card => {
+        const isActive = card.dataset.skill === skill.name;
+        card.classList.toggle('active', isActive);
+        card.classList.toggle('dimmed', !isActive && activeSkill !== null);
+      });
+      
+      showSkillDetails(skill);
+    }
+  
+    // Show skill details
+    function showSkillDetails(skill) {
+      skillDetailsPlaceholder.style.display = 'none';
+      skillDetailsContent.style.display = 'block';
+      
+      // Generate skill details HTML
+      skillDetailsContent.innerHTML = `
+        <div class="skill-details-header">
+          <span class="skill-details-icon">${skill.icon}</span>
+          <h3 class="skill-details-name">${skill.name}</h3>
+        </div>
+        
+        <div class="skill-details-section">
+          <h4 class="skill-details-section-title">Project Experience</h4>
+          <div class="skill-dots">
+            ${Array(skill.projects).fill(0).map((_, i) => `
+              <div class="skill-dot" style="animation-delay: ${i * 0.1}s"></div>
+            `).join('')}
+            <span class="skill-progress-text" style="margin-left: 8px">${skill.projects} project${skill.projects !== 1 ? 's' : ''}</span>
+          </div>
+        </div>
+        
+        <div class="skill-details-section">
+          <h4 class="skill-details-section-title purple">Years of Experience</h4>
+          <div class="skill-progress">
+            <div class="skill-progress-bar">
+              <div class="skill-progress-fill" style="width: ${Math.min(100, skill.yearsExp * 20)}%"></div>
+            </div>
+            <span class="skill-progress-text">${skill.yearsExp} year${skill.yearsExp !== 1 ? 's' : ''}</span>
+          </div>
+        </div>
+        
+        <div class="skill-details-section">
+          <h4 class="skill-details-section-title">Related Skills</h4>
+          <div class="related-skills">
+            ${skill.relatedSkills.map(relatedSkill => `
+              <span class="related-skill">${relatedSkill}</span>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+  
+    // Hide skill details
+    function hideSkillDetails() {
+      skillDetailsPlaceholder.style.display = 'flex';
+      skillDetailsContent.style.display = 'none';
+    }
+  
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
 
         <!-- Experience Timeline Section -->
         <section class="section" id="experience">
@@ -591,54 +1405,302 @@
         </section>
         
         <section class="section" id="projects">
-            <h2 class="section-title">My <span>Projects</span></h2>
-            <div class="projects">
-                <div class="project-card">
-                    <div class="project-img">🦠</div>
-                    <div class="project-content">
-                        <h3>SIR Model Simulation</h3>
-                        <p>Python simulation of infectious disease spread using the SIR epidemiological model, with graphs and statistics.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Matplotlib</span>
-                            <span class="tag">NumPy</span>
-                            <span class="tag">SciPy</span>
-                        </div>
-                        <a href="https://github.com/W-Akrabi/SIR-Model" class="btn btn-outline">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img">🤖</div>
-                    <div class="project-content">
-                        <h3>CampusPulse</h3>
-                        <p>Java-based event discovery app that helps students find, filter, and manage campus events using clean architecture and map APIs.</p>
-                        <div class="project-tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">Map API</span>
-                            <span class="tag">MongoDB</span>
-                            <span class="tag">Clean Architecture</span>
-                        </div>
-                        <a href="https://github.com/IbrahimBilal2005/CampusPulse" class="btn btn-outline">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img">🎮</div>
-                    <div class="project-content">
-                        <h3>Maternal Healthcare & SDG Score Prediction</h3>
-                        <p>Used multiple linear regression to predict SDG Index Scores across countries based on maternal mortality, skilled birth attendance, and service coverage.</p>
-                        <div class="project-tags">
-                            <span class="tag">R</span>
-                            <span class="tag">Data Science</span>
-                            <span class="tag">Regression Analysis</span>
-                            <span class="tag">SDG</span>
-                        </div>
-                        <a href="https://github.com/W-Akrabi/maternal-healthcare?tab=readme-ov-file" class="btn btn-outline">View Project</a>
-                    </div>
-                </div>
+          <h2 class="section-title">My <span>Projects</span></h2>
+          
+          <div class="projects-container">
+            <div class="projects-filter">
+              <button class="filter-btn active" data-filter="all">All Projects</button>
+              <button class="filter-btn" data-filter="data-science">Data Science</button>
+              <button class="filter-btn" data-filter="web-dev">Web Development</button>
+              <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+              <button class="filter-btn" data-filter="systems">Systems Programming</button>
             </div>
+            
+            <div class="projects-grid">
+              <!-- SIR Model Project -->
+              <div class="project-card" data-category="data-science">
+                <div class="featured-badge">Featured</div>
+                <div class="project-status status-completed">Completed</div>
+                <div class="project-img">
+                  🦠
+                  <div class="tech-icon">🐍</div>
+                  <div class="tech-icon">📊</div>
+                  <div class="tech-icon">🧮</div>
+                </div>
+                <div class="project-content">
+                  <h3 class="project-title">SIR Model Simulation</h3>
+                  <div class="project-metrics">
+                    <div class="project-metric">
+                      <span class="metric-label">Duration:</span>
+                      <span class="metric-number">2 months</span>
+                    </div>
+                    <div class="project-metric">
+                      <span class="metric-label">Last Update:</span>
+                      <span class="metric-number">Mar 2025</span>
+                    </div>
+                  </div>
+                  <p class="project-description">Python simulation of infectious disease spread using the SIR epidemiological model, with interactive graphs and detailed statistical analysis.</p>
+                  <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Matplotlib</span>
+                    <span class="tag">NumPy</span>
+                    <span class="tag">SciPy</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://github.com/W-Akrabi/SIR-Model" class="btn" target="_blank">View Project</a>
+                    <a href="#" class="btn btn-outline">Live Demo</a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- CampusPulse Project -->
+              <div class="project-card" data-category="mobile">
+                <div class="project-status status-ongoing">Ongoing</div>
+                <div class="project-img">
+                  🤖
+                  <div class="tech-icon">☕</div>
+                  <div class="tech-icon">🗺️</div>
+                  <div class="tech-icon">📱</div>
+                </div>
+                <div class="project-content">
+                  <h3 class="project-title">CampusPulse</h3>
+                  <div class="project-metrics">
+                    <div class="project-metric">
+                      <span class="metric-label">Duration:</span>
+                      <span class="metric-number">4 months</span>
+                    </div>
+                    <div class="project-metric">
+                      <span class="metric-label">Last Update:</span>
+                      <span class="metric-number">Apr 2025</span>
+                    </div>
+                  </div>
+                  <p class="project-description">Java-based event discovery app that helps students find, filter, and manage campus events using clean architecture and map APIs. Features push notifications and personalized recommendations.</p>
+                  <div class="project-tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Map API</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">Clean Architecture</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://github.com/IbrahimBilal2005/CampusPulse" class="btn" target="_blank">View Project</a>
+                    <a href="#" class="btn btn-outline">Preview</a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Maternal Healthcare Project -->
+              <div class="project-card" data-category="data-science">
+                <div class="project-status status-completed">Completed</div>
+                <div class="project-img">
+                  📊
+                  <div class="tech-icon">📈</div>
+                  <div class="tech-icon">🧠</div>
+                  <div class="tech-icon">🔍</div>
+                </div>
+                <div class="project-content">
+                  <h3 class="project-title">Maternal Healthcare & SDG Score Prediction</h3>
+                  <div class="project-metrics">
+                    <div class="project-metric">
+                      <span class="metric-label">Duration:</span>
+                      <span class="metric-number">3 months</span>
+                    </div>
+                    <div class="project-metric">
+                      <span class="metric-label">Last Update:</span>
+                      <span class="metric-number">Feb 2025</span>
+                    </div>
+                  </div>
+                  <p class="project-description">Used multiple linear regression to predict SDG Index Scores across countries based on maternal mortality, skilled birth attendance, and service coverage.</p>
+                  <div class="project-tags">
+                    <span class="tag">R</span>
+                    <span class="tag">Data Science</span>
+                    <span class="tag">Regression Analysis</span>
+                    <span class="tag">SDG</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://github.com/W-Akrabi/maternal-healthcare?tab=readme-ov-file" class="btn" target="_blank">View Project</a>
+                    <a href="#" class="btn btn-outline">Read Paper</a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Sporti App Project -->
+              <div class="project-card" data-category="mobile">
+                <div class="featured-badge">Featured</div>
+                <div class="project-status status-completed">Completed</div>
+                <div class="project-img">
+                  ⚽
+                  <div class="tech-icon">📱</div>
+                  <div class="tech-icon">⚛️</div>
+                  <div class="tech-icon">🔌</div>
+                </div>
+                <div class="project-content">
+                  <h3 class="project-title">Sporti</h3>
+                  <div class="project-metrics">
+                    <div class="project-metric">
+                      <span class="metric-label">Duration:</span>
+                      <span class="metric-number">5 months</span>
+                    </div>
+                    <div class="project-metric">
+                      <span class="metric-label">Last Update:</span>
+                      <span class="metric-number">Apr 2025</span>
+                    </div>
+                  </div>
+                  <p class="project-description">Mobile app designed to help users in the Middle East find and join sports activities quickly and easily. Inspired by GoodRec, Sporti offers a broader range of sports and a user-friendly interface.</p>
+                  <div class="project-tags">
+                    <span class="tag">React Native</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Mobile Development</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="btn" target="_blank">View Project</a>
+                    <a href="#" class="btn btn-outline">Demo</a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Neural Network in MIPS Project -->
+              <div class="project-card" data-category="systems">
+                <div class="project-status status-completed">Completed</div>
+                <div class="project-img">
+                  ⚙️
+                  <div class="tech-icon">🧠</div>
+                  <div class="tech-icon">🔢</div>
+                  <div class="tech-icon">📝</div>
+                </div>
+                <div class="project-content">
+                  <h3 class="project-title">Neural Network in MIPS Assembly</h3>
+                  <div class="project-metrics">
+                    <div class="project-metric">
+                      <span class="metric-label">Duration:</span>
+                      <span class="metric-number">1 month</span>
+                    </div>
+                    <div class="project-metric">
+                      <span class="metric-label">Last Update:</span>
+                      <span class="metric-number">Jan 2025</span>
+                    </div>
+                  </div>
+                  <p class="project-description">A simple neural network (logistic regression) written entirely in MIPS Assembly, designed to classify binary labels based on 3 input features per sample.</p>
+                  <div class="project-tags">
+                    <span class="tag">Assembly</span>
+                    <span class="tag">MIPS</span>
+                    <span class="tag">Fixed-Point Math</span>
+                    <span class="tag">Neural Networks</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="btn" target="_blank">View Project</a>
+                    <a href="#" class="btn btn-outline">Documentation</a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Student Performance Prediction Project -->
+              <div class="project-card" data-category="data-science">
+                <div class="project-status status-completed">Completed</div>
+                <div class="project-img">
+                  🎓
+                  <div class="tech-icon">🐍</div>
+                  <div class="tech-icon">🧠</div>
+                  <div class="tech-icon">📈</div>
+                </div>
+                <div class="project-content">
+                  <h3 class="project-title">Student Performance Prediction</h3>
+                  <div class="project-metrics">
+                    <div class="project-metric">
+                      <span class="metric-label">Duration:</span>
+                      <span class="metric-number">2 months</span>
+                    </div>
+                    <div class="project-metric">
+                      <span class="metric-label">Last Update:</span>
+                      <span class="metric-number">Feb 2025</span>
+                    </div>
+                  </div>
+                  <p class="project-description">Machine learning pipeline for predicting student grades based on features like age, scholarship type, and study habits. Includes data preprocessing, feature scaling, oversampling, and neural network model training.</p>
+                  <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">TensorFlow</span>
+                    <span class="tag">scikit-learn</span>
+                    <span class="tag">Data Analysis</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" class="btn" target="_blank">View Project</a>
+                    <a href="#" class="btn btn-outline">Report</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
+        
+        <script>
+          // Project filtering functionality
+          document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            const projectsGrid = document.querySelector('.projects-grid');
+            
+            // Filter projects when clicking on filter buttons
+            filterButtons.forEach(button => {
+              button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                let hasVisibleProjects = false;
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                  if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'block';
+                    hasVisibleProjects = true;
+                    
+                    // Add animation
+                    setTimeout(() => {
+                      card.style.opacity = '1';
+                      card.style.transform = 'translateY(0)';
+                    }, 100);
+                  } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                  }
+                });
+                
+                // Show empty state if no projects match the filter
+                if (!hasVisibleProjects) {
+                  if (!document.querySelector('.empty-state')) {
+                    const emptyState = document.createElement('div');
+                    emptyState.className = 'empty-state';
+                    emptyState.innerHTML = `
+                      <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
+                      <h3 style="margin-bottom: 0.5rem;">No projects found</h3>
+                      <p>No projects match the selected filter. Try another category.</p>
+                    `;
+                    projectsGrid.appendChild(emptyState);
+                  }
+                } else {
+                  const emptyState = document.querySelector('.empty-state');
+                  if (emptyState) {
+                    emptyState.remove();
+                  }
+                }
+              });
+            });
+            
+            // Initialize animations
+            projectCards.forEach((card, index) => {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(20px)';
+              
+              setTimeout(() => {
+                card.style.transition = 'all 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, 100 + index * 100);
+            });
+          });
+        </script>
         
         <section class="section" id="contact">
             <h2 class="section-title">Get In <span>Touch</span></h2>
